@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainbg"
     android:orientation="vertical"
-    android:padding="25dp"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/mainContainer"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible">
+        android:layout_height="wrap_content"
+        android:background="?colorPrimary"
+        android:theme="@style/ToolbarTheme" />
 
-        <LinearLayout
-            android:id="@+id/addressContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/navigation"
+        app:defaultNavHost="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/address"
-                android:textSize="24sp"
-                android:text="Location"
-                android:textColor="@color/white"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_nav"/>
 
-        </LinearLayout>
-        
-    </RelativeLayout>
-
-</RelativeLayout>
+</LinearLayout>
